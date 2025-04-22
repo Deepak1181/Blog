@@ -2,7 +2,7 @@ import React from 'react'
 
 const ShoppingHeader = () => {
   return (
-    <div>ShoopingH</div>
+    <div>Shooping</div>
   )
 }
 
