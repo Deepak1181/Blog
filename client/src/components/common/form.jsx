@@ -7,14 +7,11 @@ import { SelectContent, SelectItem } from "../ui/select";
 import { Button } from "../ui/button";
 
 
-const types={
-  INPUT:"input",
-  TEXTAREA:"textarea",
-  SELECT:"select"
-}
+
 const CommonForm = ({ formControls ,formData,setFormData,onSubmit, buttonText}) => {
   function renderInputsByComponentType(getControlItem) {
     let element = null;
+    
     const value= formData[getControlItem.name]|| ""
 
     switch (getControlItem.componentType) {
@@ -55,7 +52,7 @@ const CommonForm = ({ formControls ,formData,setFormData,onSubmit, buttonText}) 
             
           }>
            <SelectTrigger className="w-full">
-            <SelectValue placeholder={getControlItem.placeholder} />
+            <SelectValue placeholder={getControlItem.label} />
 
            </SelectTrigger>
           <SelectContent>
@@ -90,7 +87,7 @@ const CommonForm = ({ formControls ,formData,setFormData,onSubmit, buttonText}) 
       <div className="flex flex-col gap-4">
         {formControls.map((controlItem) => (
           <div className="grid w-full gap-1.5" key={controlItem.name}>
-            <Label className="mb-1">{controlItem.Label}</Label>
+            <Label className="mb-1 font-semibold">{controlItem.label}</Label>
             {renderInputsByComponentType(controlItem)}
           </div>
         ))}
